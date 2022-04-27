@@ -222,8 +222,6 @@ def get_start_pages(query, num_start_pages=10):
     initial_links = []
     count = 0
 
-    connecttor()
-
     for link in links:
         href = link.get('href')
         if "url?q=" in href and "webcache" not in href:
@@ -688,7 +686,7 @@ def crawl():
     start_time = time.time()
     start_pages = get_start_pages(query, num_start_pages)
 
-    links_to_parse = PriorityQueue()
+    links_to_parse = PriorityQueue
     parsed_urls = ParsedURLs()
 
     # get synonyms list and lemmatized words
