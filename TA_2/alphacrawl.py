@@ -3,16 +3,14 @@
 import argparse
 from traceback import print_tb
 # TorCrawl Modules
-from modules.crawler import crawler
+from modules.crawler import *
 from modules.checker import *
 
 help = '''
 Umum:
 -h, --help         : Bantuan
--u, --url *.onion  : Untuk menentukan URL awal yang akan di crawl 
 
 Crawler:
--d, --cdepth      : Mengatur tingkat kedalaman crawl (Default: 1)
 -p, --cpause      : Untuk mengatur lama waktu pause saat crawling (Default: 0)
 '''
 
@@ -42,12 +40,9 @@ def main():
 	# Cek Layanan TOR
 	checktor()
 
-	# Perbaikan link, pembuatan outpath dan pemanggilan proses crawling
-	if len(args.url) > 0:
-		global website
-		global outpath
-		crawl()
-		print("\n\n** Proses Crawling Selesai **\n")
+	# pemanggilan proses crawling
+	crawl()
+	print("\n\n** Proses Crawling Selesai **\n")
 
 if __name__ == "__main__":
     main()
